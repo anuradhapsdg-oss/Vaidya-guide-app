@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaidya — Premium Ayurvedic Wellness Guide</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        olive: {
+                            50: '#F5F6F2',
+                            100: '#CBD1C3', // Elegant deep sage background
+                            200: '#B9C2B1', // Contrast background for sections
+                            300: '#A1AE98',
+                            450: '#8FA17B',
+                            700: '#4D583F',
+                            800: '#3A432F',
+                            900: '#2A3022',
+                        },
+                        sand: {
+                            50: '#FBF9F5',
+                            100: '#F8F5EE',
+                            200: '#F4efe4', // Pure premium sand color for cards
+                            300: '#E9DEC6',
+                            400: '#DCCDA8',
+                            gold: '#C5A880', // Premium gold accent color
+                            goldHover: '#B5966D',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 10s ease-in-out infinite',
+                        'pulse-subtle': 'pulseSubtle 5s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        @keyframes pulseSubtle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(1.03); }
+        }
+        .premium-card {
+            background: #F4efe4;
+            border: 1px solid rgba(197, 168, 128, 0.35);
+        }
+        .dark .premium-card {
+            background: rgba(45, 40, 31, 0.9);
+            border: 1px solid rgba(197, 168, 128, 0.2);
+        }
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-olive-100 dark:bg-olive-900 text-olive-800 dark:text-olive-100 transition-colors duration-500 font-sans leading-relaxed text-lg">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-olive-100/80 dark:bg-olive-900/80 backdrop-blur-md border-b border-sand-gold/15 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <svg class="w-8 h-8 text-sand-gold" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4C13,6 14.5,8.5 15,10.5C14,10 13,9.5 12,9.5C11,9.5 10,10 9,10.5C9.5,8.5 11,6 12,4M12,18C11,16 9.5,13.5 9,11.5C10,12 11,12.5 12,12.5C13,12.5 14,12 15,11.5C14.5,13.5 13,16 12,18Z"/>
+                </svg>
+                <span class="font-serif text-2xl font-medium tracking-wide text-olive-900 dark:text-white">Vaidya<span class="text-sand-gold font-light">Guide</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest">
+                <a href="#about" class="hover:text-sand-gold transition duration-300">Science</a>
+                <a href="#doshas" class="hover:text-sand-gold transition duration-300">Three Doshas</a>
+                <a href="#test-section" class="hover:text-sand-gold transition duration-300">Profile Test</a>
+                <a href="#breathing" class="hover:text-sand-gold transition duration-300">Pranayama</a>
+                <a href="#soundscapes" class="hover:text-sand-gold transition duration-300">Sound Therapy</a>
+                <a href="#ama-test" class="hover:text-sand-gold transition duration-300">Toxin Meter</a>
+                <a href="#spices" class="hover:text-sand-gold transition duration-300">Spices</a>
+                <a href="#nutrition" class="hover:text-sand-gold transition duration-300">Nutrition</a>
+                <a href="#ai-sage" class="hover:text-sand-gold font-bold flex items-center gap-1.5"><i class="fa-solid fa-moon text-sand-gold"></i> Vaidya Guide</a>
+            </nav>
+
+            <!-- Controls -->
+            <div class="flex items-center gap-5">
+                <button onclick="toggleDarkMode()" class="p-2.5 rounded-full hover:bg-sand-200/50 dark:hover:bg-olive-800 text-olive-700 dark:text-olive-200 transition" title="Toggle Theme">
+                    <i id="themeIcon" class="fa-solid fa-moon text-xl"></i>
+                </button>
+                <a href="#test-section" class="hidden sm:inline-block px-6 py-3 bg-olive-700 hover:bg-olive-800 dark:bg-sand-gold dark:hover:bg-sand-goldHover text-white dark:text-olive-900 text-xs font-bold tracking-widest uppercase rounded-full transition shadow-md">
+                    Start Test
+                </a>
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-full hover:bg-sand-200/50 dark:hover:bg-olive-800 text-olive-700 dark:text-olive-200 transition">
+                    <i id="menuIcon" class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden absolute top-full left-0 right-0 bg-sand-100 dark:bg-olive-900 border-b border-sand-gold/15 p-6 flex flex-col gap-5 shadow-2xl">
+            <a href="#about" class="mobile-link text-sm font-semibold tracking-wider hover:text-sand-gold">SCIENCE</a>
+            <a href="#doshas" class="mobile-link text-sm font-semibold tracking-wider hover:text-sand-gold">THREE DOSHAS</a>
+            <a href="#test-section" class="mobile-link text-sm font-semibold tracking-wider hover:text-sand-gold">PROFILE TEST</a>
+            <a href="#breathing" class="mobile-link text-sm font-semibold tracking-wider hover:text-sand-gold">PRANAYAMA</a>
+            <a href="#soundscapes" class="mobile-link text-sm font-semibold tracking-wider hover:text-sand-gold">SOUND THERAPY</a>
+            <a href="#ama-test" class="mobile-link text-sm font-semibold tracking-wider hover:text-sand-gold">TOXIN METER</a>
+            <a href="#spices" class="mobile-link text-sm font-semibold tracking-wider hover:text-sand-gold">SPICES</a>
+            <a href="#nutrition" class="mobile-link text-sm font-semibold tracking-wider hover:text-sand-gold">NUTRITION</a>
+            <a href="#ai-sage" class="mobile-link text-sm font-bold text-sand-gold flex items-center gap-1.5"><i class="fa-solid fa-moon"></i> VAIDYA GUIDE</a>
+            <a href="#test-section" class="mobile-link w-full text-center bg-olive-700 dark:bg-sand-gold text-white dark:text-olive-900 py-3.5 rounded-full mt-2 font-bold text-xs tracking-widest uppercase">Start Test</a>
+        </div>
+    </header>
+
+    <main class="pt-24 overflow-hidden">
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center px-6 md:px-12 py-16 max-w-7xl mx-auto">
+            <div class="absolute right-0 top-1/4 w-[350px] h-[350px] bg-sand-gold/15 rounded-full filter blur-[90px] pointer-events-none animate-float-slow"></div>
+            <div class="absolute left-1/4 bottom-10 w-[280px] h-[280px] bg-olive-300/20 dark:bg-olive-800/10 rounded-full filter blur-[80px] pointer-events-none animate-pulse-subtle"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+                <!-- Text Container -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-sand-200 dark:bg-olive-800/50 text-olive-900 dark:text-sand-200 text-xs font-bold tracking-widest uppercase border border-sand-gold/20">
+                        <svg class="w-4 h-4 text-sand-gold" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4C13,6 14.5,8.5 15,10.5C14,10 13,9.5 12,9.5C11,9.5 10,10 9,10.5C9.5,8.5 11,6 12,4M12,18C11,16 9.5,13.5 9,11.5C10,12 11,12.5 12,12.5C13,12.5 14,12 15,11.5C14.5,13.5 13,16 12,18Z"/>
+                        </svg>
+                        Traditions of Vedic Wellness
+                    </div>
+                    <h1 class="font-serif text-5xl md:text-7xl xl:text-8xl font-light text-olive-950 dark:text-white leading-[1.1]">
+                        Discover your <span class="font-normal italic text-sand-gold">Ayurvedic</span> Dosha Profile
+                    </h1>
+                    <p class="text-lg md:text-xl text-olive-750 dark:text-olive-200/85 max-w-xl leading-relaxed">
+                        Ayurveda helps you understand your unique mind-body constitution, guiding you toward personalized nutrition, daily rhythms, and lifestyle choices for complete harmony.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-5 pt-3">
+                        <a href="#test-section" class="px-8 py-4 bg-olive-700 hover:bg-olive-800 dark:bg-sand-gold dark:hover:bg-sand-goldHover text-white dark:text-olive-900 font-bold tracking-widest text-xs uppercase rounded-full text-center transition shadow-lg transform hover:-translate-y-0.5">
+                            Determine Your Dosha
+                        </a>
+                        <a href="#about" class="px-8 py-4 border border-sand-gold/30 hover:bg-sand-200/40 dark:hover:bg-olive-800/40 text-olive-800 dark:text-olive-100 font-bold tracking-widest text-xs uppercase rounded-full text-center transition">
+                            Explore the System
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Decorative Meditative Visualizer -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <div class="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full border border-sand-gold/20 p-4 flex items-center justify-center animate-spin-slow pointer-events-none" style="animation-duration: 25s">
+                        <div class="absolute inset-0 border-t-2 border-sand-gold/40 rounded-full"></div>
+                        <div class="absolute inset-4 border-b-2 border-sand-gold/20 rounded-full"></div>
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center space-y-4">
+                        <svg class="w-24 h-24 text-sand-gold drop-shadow-xl" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12,2.69C11.5,4.78 10,7.31 9.5,9.31C10.5,8.81 11.5,8.31 12.5,8.31C13.5,8.31 14.5,8.81 15.5,9.31C15,7.31 13.5,4.78 13,2.69M12,12C11,10 9,7.5 8.5,5.5C9.5,6 10.5,6.5 11.5,6.5C12.5,6.5 13.5,6 14.5,5.5C14,7.5 12,10 11,12M12,21.31C12.5,19.22 14,16.69 14.5,14.69C13.5,15.19 12.5,15.69 11.5,15.69C10.5,15.69 9.5,15.19 8.5,14.69C9,16.69 10.5,19.22 11,21.31M12,12C13,14 15,16.5 15.5,18.5C14.5,18 13.5,17.5 12.5,17.5C11.5,17.5 10.5,18 9.5,18.5C10,16.5 12,14 13,12Z"/>
+                        </svg>
+                        <div class="bg-sand-200 dark:bg-olive-850 px-6 py-2.5 rounded-full shadow-md text-[10px] font-bold border border-sand-gold/35 tracking-widest text-olive-900 dark:text-sand-100 uppercase">
+                            Vata • Pitta • Kapha
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-olive-200 dark:bg-olive-900/60 border-y border-sand-gold/15 px-6 md:px-12">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="text-xs tracking-widest uppercase font-bold text-sand-gold">Harmony of elements</div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white leading-tight">What is Ayurveda?</h2>
+                    <p class="text-base md:text-lg text-olive-750 dark:text-olive-200 leading-relaxed">
+                        Ayurveda is an ancient system of natural healing that originated in India over 5,000 years ago.
+                    </p>
+                    <p class="text-base md:text-lg text-olive-750 dark:text-olive-200 leading-relaxed">
+                        Its core principle is that every individual possesses a unique mind-body constitution comprised of three vital forces, or Doshas: Vata, Pitta, and Kapha.
+                    </p>
+                    <div class="p-6 bg-sand-200/50 dark:bg-olive-800/30 rounded-2xl border-l-4 border-sand-gold text-sm italic text-olive-900 dark:text-sand-200 leading-relaxed">
+                        "Balancing these sacred energies is the gateway to vibrant health, mental clarity, and longevity."
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- VATA SUM -->
+                    <div class="premium-card p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-14 h-14 rounded-full bg-sand-100 dark:bg-olive-800/50 flex items-center justify-center">
+                            <i class="fa-solid fa-wind text-sand-gold text-2xl"></i>
+                        </div>
+                        <h4 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white mt-4">Vata Dosha</h4>
+                        <p class="text-sm text-olive-700 dark:text-olive-300 mt-2 leading-relaxed">The Energy of Movement. Elements of Air & Ether. Governs respiration, circulation, and nervous impulses.</p>
+                    </div>
+                    <!-- PITTA SUM -->
+                    <div class="premium-card p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-14 h-14 rounded-full bg-sand-100 dark:bg-olive-800/50 flex items-center justify-center">
+                            <i class="fa-solid fa-fire text-sand-gold text-2xl"></i>
+                        </div>
+                        <h4 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white mt-4">Pitta Dosha</h4>
+                        <p class="text-sm text-olive-700 dark:text-olive-300 mt-2 leading-relaxed">The Energy of Transformation. Elements of Fire & Water. Governs digestion, metabolic rates, and cognitive sharp intellect.</p>
+                    </div>
+                    <!-- KAPHA SUM -->
+                    <div class="premium-card p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+                        <div class="w-14 h-14 rounded-full bg-sand-100 dark:bg-olive-800/50 flex items-center justify-center">
+                            <i class="fa-solid fa-droplet text-sand-gold text-2xl"></i>
+                        </div>
+                        <h4 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white mt-4">Kapha Dosha</h4>
+                        <p class="text-sm text-olive-700 dark:text-olive-300 mt-2 leading-relaxed">The Energy of Structure. Elements of Earth & Water. Governs somatic coherence, joints lubrication, and structural stability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three Doshas Section -->
+        <section id="doshas" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="text-center flex flex-col items-center gap-3 mb-16">
+                <div class="text-xs tracking-widest uppercase font-bold text-sand-gold">Vedic Blueprint</div>
+                <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white">The Three Primordial Doshas</h2>
+                <p class="text-olive-750 dark:text-olive-200 max-w-xl text-sm">Each energetic blueprint encompasses distinct physical and physiological traits.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- VATA CARD -->
+                <div class="premium-card rounded-3xl overflow-hidden group flex flex-col justify-between shadow-xl">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-wind text-sand-gold text-3xl group-hover:scale-110 transition duration-300"></i>
+                            <span class="text-[9px] font-bold bg-olive-100 dark:bg-olive-900/60 text-sand-gold border border-sand-gold/30 px-3 py-1.5 rounded-full uppercase tracking-widest">Air + Ether</span>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-3xl font-semibold text-olive-950 dark:text-white">Vata (Wind)</h3>
+                            <p class="text-[9px] text-sand-gold uppercase tracking-widest font-semibold mt-1">Lightness, Quickness, Changeability</p>
+                        </div>
+                        <div class="space-y-4 pt-2">
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Physical Frame:</span>
+                                <ul class="text-sm text-olive-750 dark:text-olive-300 list-disc list-inside space-y-1">
+                                    <li>Slender, lightweight build, narrow frame</li>
+                                    <li>Dry, delicate skin, cool hands and feet</li>
+                                    <li>Rapid weight loss, prominent joints</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Behavior & Mind:</span>
+                                <ul class="text-sm text-olive-750 dark:text-olive-300 list-disc list-inside space-y-1">
+                                    <li>Highly active, thrives on change</li>
+                                    <li>Creative, emotionally expressive and sensitive</li>
+                                    <li>Inspired quickly but fatigues rapidly</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Speech Pattern:</span>
+                                <p class="text-sm text-olive-750 dark:text-olive-300">Rapid, talkative, frequently switching topics quickly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-sand-100/45 dark:bg-olive-900/30 p-6 border-t border-sand-gold/15 text-center">
+                        <span class="text-[10px] uppercase font-bold text-sand-gold tracking-widest">Regulates Nervous System</span>
+                    </div>
+                </div>
+
+                <!-- PITTA CARD -->
+                <div class="premium-card rounded-3xl overflow-hidden group flex flex-col justify-between shadow-xl">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-fire text-sand-gold text-3xl group-hover:scale-110 transition duration-300"></i>
+                            <span class="text-[9px] font-bold bg-olive-100 dark:bg-olive-900/60 text-sand-gold border border-sand-gold/30 px-3 py-1.5 rounded-full uppercase tracking-widest">Fire + Water</span>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-3xl font-semibold text-olive-950 dark:text-white">Pitta (Fire)</h3>
+                            <p class="text-[9px] text-sand-gold uppercase tracking-widest font-semibold mt-1">Intensity, Heat, Sharp Focus</p>
+                        </div>
+                        <div class="space-y-4 pt-2">
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Physical Frame:</span>
+                                <ul class="text-sm text-olive-750 dark:text-olive-300 list-disc list-inside space-y-1">
+                                    <li>Medium, athletic build, symmetrical muscles</li>
+                                    <li>Warm skin, prone to redness and flushing</li>
+                                    <li>Stable weight, easily regulated metabolism</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Behavior & Mind:</span>
+                                <ul class="text-sm text-olive-750 dark:text-olive-300 list-disc list-inside space-y-1">
+                                    <li>Determined, highly organized, and ambitious</li>
+                                    <li>Thrives on competition and leadership roles</li>
+                                    <li>Highly analytical, sharp, structured intellect</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Speech Pattern:</span>
+                                <p class="text-sm text-olive-750 dark:text-olive-300">Confident, precise, highly structured and persuasive.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-sand-100/45 dark:bg-olive-900/30 p-6 border-t border-sand-gold/15 text-center">
+                        <span class="text-[10px] uppercase font-bold text-sand-gold tracking-widest">Regulates Digestion & Heat</span>
+                    </div>
+                </div>
+
+                <!-- KAPHA CARD -->
+                <div class="premium-card rounded-3xl overflow-hidden group flex flex-col justify-between shadow-xl">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-droplet text-sand-gold text-3xl group-hover:scale-110 transition duration-300"></i>
+                            <span class="text-[9px] font-bold bg-olive-100 dark:bg-olive-900/60 text-sand-gold border border-sand-gold/30 px-3 py-1.5 rounded-full uppercase tracking-widest">Earth + Water</span>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-3xl font-semibold text-olive-950 dark:text-white">Kapha (Earth)</h3>
+                            <p class="text-[9px] text-sand-gold uppercase tracking-widest font-semibold mt-1">Stability, Density, Calmness</p>
+                        </div>
+                        <div class="space-y-4 pt-2">
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Physical Frame:</span>
+                                <ul class="text-sm text-olive-750 dark:text-olive-300 list-disc list-inside space-y-1">
+                                    <li>Robust, broad, and powerful physical build</li>
+                                    <li>Thick, lustrous hair, soft and glowing skin</li>
+                                    <li>Prone to weight retention, slower metabolism</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Behavior & Mind:</span>
+                                <ul class="text-sm text-olive-750 dark:text-olive-300 list-disc list-inside space-y-1">
+                                    <li>Calm, deeply patient, highly reliable and loyal</li>
+                                    <li>Gentle-natured, balanced emotional state</li>
+                                    <li>Avoids rush, values routine and stability</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-olive-900 dark:text-white uppercase tracking-wider block mb-1">Speech Pattern:</span>
+                                <p class="text-sm text-olive-750 dark:text-olive-300">Slow, measured, serene, gentle, and calming.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-sand-100/45 dark:bg-olive-900/30 p-6 border-t border-sand-gold/15 text-center">
+                        <span class="text-[10px] uppercase font-bold text-sand-gold tracking-widest">Regulates Immunity & Structure</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Quiz Section -->
+        <section id="test-section" class="py-24 bg-olive-200 dark:bg-olive-900/40 px-6 md:px-12 border-t border-sand-gold/15">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center flex flex-col items-center gap-3 mb-12">
+                    <span class="text-xs font-bold text-sand-gold tracking-widest uppercase">Self-Discovery</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white">Dosha Assessment</h2>
+                    <p class="text-sm text-olive-750 dark:text-olive-300 max-w-md">Answer 6 essential physiological questions to calculate the current dominant energy of your mind and body.</p>
+                </div>
+
+                <!-- Wizard Card -->
+                <div class="premium-card rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                    <div class="w-full bg-olive-100 dark:bg-olive-800 h-1 rounded-full mb-10 overflow-hidden">
+                        <div id="quizProgressBar" class="bg-sand-gold h-full transition-all duration-300" style="width: 16.66%;"></div>
+                    </div>
+
+                    <form id="doshaQuiz" onsubmit="calculateDosha(event)" class="space-y-8">
+                        
+                        <!-- Question Step 1 -->
+                        <div class="quiz-step space-y-6" data-step="1">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] uppercase font-bold tracking-widest text-sand-gold">Question 1 of 6</span>
+                                <span class="text-xs font-medium text-olive-700 dark:text-olive-300">Physical Structure</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white">How would you describe your natural physical frame?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q1" value="vata" required class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Slender / Thin</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Light bone structure, hard to gain muscle or fat, narrow.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q1" value="pitta" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Medium / Athletic</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Symmetrical proportion, easily builds muscle tone.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q1" value="kapha" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Broad / Heavy</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Robust, larger bone density, naturally holds weight.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question Step 2 -->
+                        <div class="quiz-step hidden space-y-6" data-step="2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] uppercase font-bold tracking-widest text-sand-gold">Question 2 of 6</span>
+                                <span class="text-xs font-medium text-olive-700 dark:text-olive-300">Appetite & Digestion</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white">What is the typical pattern of your appetite?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q2" value="vata" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Irregular</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Prone to sudden hunger, easily bloating, can skip meals.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q2" value="pitta" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Intense / Strong</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Sharp hunger, easily irritated if meals are delayed.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q2" value="kapha" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Moderate / Stable</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Can skip eating easily but digestion feels slow and heavy.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question Step 3 -->
+                        <div class="quiz-step hidden space-y-6" data-step="3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] uppercase font-bold tracking-widest text-sand-gold">Question 3 of 6</span>
+                                <span class="text-xs font-medium text-olive-700 dark:text-olive-300">Speech Speed</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white">At what pace do you naturally speak?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q3" value="vata" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Fast / Rapid</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Speaks quickly with gestures, sometimes stumbles on thoughts.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q3" value="pitta" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Moderate / Clear</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Articulate, logical, confident, direct.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q3" value="kapha" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Slow / Measured</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Calm, deliberate, quiet voice with pleasant pauses.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question Step 4 -->
+                        <div class="quiz-step hidden space-y-6" data-step="4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] uppercase font-bold tracking-widest text-sand-gold">Question 4 of 6</span>
+                                <span class="text-xs font-medium text-olive-700 dark:text-olive-300">Energy Levels</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white">How would you describe your typical daily energy?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q4" value="vata" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Fluctuating</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Bursts of inspiration followed by sudden exhaustion.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q4" value="pitta" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Consistently High</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Strong drive, high stamina, easily takes on tasks.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q4" value="kapha" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Calm & Stable</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Slower morning start, but steady endurance all day.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question Step 5 -->
+                        <div class="quiz-step hidden space-y-6" data-step="5">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] uppercase font-bold tracking-widest text-sand-gold">Question 5 of 6</span>
+                                <span class="text-xs font-medium text-olive-700 dark:text-olive-300">Sleep Style</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white">What is the quality of your nocturnal sleep?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q5" value="vata" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Light / Interrupted</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Prone to waking up from tiny noises, overthinking in bed.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q5" value="pitta" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Moderate / Restful</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Falls asleep easily, gets fully rested in 6-7 hours.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q5" value="kapha" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Deep / Heavy</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Heavy sleeper, struggles to awaken, loves extra snooze.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question Step 6 -->
+                        <div class="quiz-step hidden space-y-6" data-step="6">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] uppercase font-bold tracking-widest text-sand-gold">Question 6 of 6</span>
+                                <span class="text-xs font-medium text-olive-700 dark:text-olive-300">Emotional Stress Reaction</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-semibold text-olive-950 dark:text-white">How do you immediately react to unexpected stress?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q6" value="vata" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Anxiety / Worry</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Fearful thinking, hyperactive mind, feeling overwhelmed.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q6" value="pitta" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Anger / Impatience</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Frustration, critical mood, aggressive solution-seeking.</span>
+                                </label>
+                                <label class="quiz-option cursor-pointer flex flex-col p-5 bg-sand-100/50 dark:bg-olive-900/20 border border-sand-gold/15 rounded-2xl hover:border-sand-gold transition">
+                                    <input type="radio" name="q6" value="kapha" class="accent-sand-gold mb-3">
+                                    <span class="text-sm font-bold text-olive-950 dark:text-white">Calmness / Stubborn</span>
+                                    <span class="text-xs text-olive-700 dark:text-olive-300 mt-1">Withdrawing internally, silence, slow to accept changes.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Buttons Row -->
+                        <div class="flex justify-between items-center border-t border-sand-gold/15 pt-6">
+                            <button type="button" id="prevBtn" onclick="navigateStep(-1)" class="hidden px-6 py-3 bg-sand-300 dark:bg-olive-800 text-olive-900 dark:text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-sand-400 transition">
+                                Prev
+                            </button>
+                            <span class="flex-1"></span>
+                            <button type="button" id="nextBtn" onclick="navigateStep(1)" class="px-6 py-3 bg-olive-700 hover:bg-olive-800 dark:bg-sand-gold dark:hover:bg-sand-goldHover text-white dark:text-olive-900 text-xs font-bold uppercase tracking-widest rounded-full transition">
+                                Next
+                            </button>
+                            <button type="submit" id="submitBtn" class="hidden px-8 py-3.5 bg-sand-gold hover:bg-sand-goldHover text-olive-900 text-xs font-bold uppercase tracking-widest rounded-full transition shadow-md">
+                                Calculate Dosha
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Pranayama Coach Section -->
+        <section id="breathing" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="text-xs tracking-widest uppercase font-bold text-sand-gold">Prana Regulation</div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white leading-tight">Pranayama: Breath Coach</h2>
+                    <p class="text-base md:text-lg text-olive-750 dark:text-olive-200">
+                        Conscious breathing is a sacred methodology for immediate balance of cosmic life energy (Prana) and stabilizing the restless mind. Select your specialized mode:
+                    </p>
+                    
+                    <!-- Mode selectors -->
+                    <div class="space-y-3">
+                        <button onclick="setBreathingMode('vata')" id="bModeVata" class="w-full text-left p-4 rounded-2xl border border-sand-gold/30 bg-sand-200 dark:bg-olive-850 hover:bg-sand-300 transition flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-sm text-olive-950 dark:text-white">Sama Vritti (For Vata)</h4>
+                                <p class="text-xs text-olive-700 dark:text-olive-300 mt-1">Balanced box cycle for grounding and easing excessive mental anxiety.</p>
+                            </div>
+                            <span class="text-xs font-mono font-bold bg-sand-300/30 text-sand-gold dark:text-sand-300 px-2 py-1 rounded">4-4-4-4</span>
+                        </button>
+                        <button onclick="setBreathingMode('pitta')" id="bModePitta" class="w-full text-left p-4 rounded-2xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-sm text-olive-950 dark:text-white">Sitali Cooling (For Pitta)</h4>
+                                <p class="text-xs text-olive-700 dark:text-olive-300 mt-1">Releases excessive somatic heat and calms impulsive emotions.</p>
+                            </div>
+                            <span class="text-xs font-mono font-bold bg-sand-300/10 text-sand-gold dark:text-sand-300 px-2 py-1 rounded">4-2-6</span>
+                        </button>
+                        <button onclick="setBreathingMode('kapha')" id="bModeKapha" class="w-full text-left p-4 rounded-2xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-sm text-olive-950 dark:text-white">Bhastrika (For Kapha)</h4>
+                                <p class="text-xs text-olive-700 dark:text-olive-300 mt-1">Energizing and warming bellows-style breathing to ignite slow metabolism.</p>
+                            </div>
+                            <span class="text-xs font-mono font-bold bg-sand-300/10 text-sand-gold dark:text-sand-300 px-2 py-1 rounded">1.5 - 1.5</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 flex flex-col items-center justify-center p-8 bg-sand-200/40 dark:bg-olive-900/30 rounded-3xl border border-sand-gold/20 relative">
+                    <!-- Dynamic Breathing Circle -->
+                    <div class="relative w-72 h-72 flex items-center justify-center mb-6">
+                        <div id="breathingCircle" class="absolute w-36 h-36 bg-gradient-to-tr from-sand-200 to-sand-300 dark:from-sand-gold dark:to-sand-gold/40 rounded-full shadow-2xl opacity-80 scale-100 transition-transform duration-1000 ease-in-out border border-sand-gold/30"></div>
+                        <div class="relative z-10 text-center space-y-1 select-none">
+                            <span id="breathingState" class="text-xs font-bold uppercase tracking-widest text-olive-900 dark:text-white">Inhale</span>
+                            <h3 id="breathingTimer" class="font-serif text-5xl font-semibold text-olive-950 dark:text-white">4</h3>
+                        </div>
+                    </div>
+
+                    <!-- Audio play Controls -->
+                    <div class="flex items-center gap-6">
+                        <button onclick="resetBreathing()" class="p-3 bg-sand-100 dark:bg-olive-850 rounded-full hover:bg-sand-200 transition shadow border border-sand-gold/20">
+                            <i class="fa-solid fa-rotate-left text-sm text-sand-gold"></i>
+                        </button>
+                        <button onclick="toggleBreathing()" id="breathingPlayBtn" class="w-14 h-14 bg-sand-gold hover:bg-sand-goldHover text-olive-900 rounded-full flex items-center justify-center transition shadow-lg transform hover:scale-105">
+                            <i id="breathingPlayIcon" class="fa-solid fa-play text-xl"></i>
+                        </button>
+                        <span class="text-xs text-olive-700 dark:text-olive-300 font-mono tracking-wider">Cycles: <span id="breathCycles">0</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Healing Soundscapes Section -->
+        <section id="soundscapes" class="py-24 bg-olive-200 dark:bg-olive-900/50 px-6 md:px-12 border-y border-sand-gold/15">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold text-sand-gold tracking-widest uppercase">Nada Yoga Sound</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white leading-tight">Acoustic Therapy Generator</h2>
+                    <p class="text-base md:text-lg text-olive-750 dark:text-olive-200 leading-relaxed">
+                        Generate pure healing soundwaves directly on your processor. Utilizing browser Web Audio APIs, these sacred frequencies are calculated according to ancient healing registers.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <button onclick="setSoundFrequency('vata')" id="sfVata" class="p-4 rounded-xl border border-sand-gold bg-sand-200 dark:bg-olive-850 hover:bg-sand-300 transition text-center space-y-2">
+                            <i class="fa-solid fa-water text-sand-gold text-2xl"></i>
+                            <h4 class="font-bold text-xs text-olive-950 dark:text-white">Grounding Vata</h4>
+                            <p class="text-[10px] text-olive-700 dark:text-olive-300 font-mono">110 Hz • Anchor</p>
+                        </button>
+                        <button onclick="setSoundFrequency('pitta')" id="sfPitta" class="p-4 rounded-xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition text-center space-y-2">
+                            <i class="fa-solid fa-leaf text-sand-gold text-2xl"></i>
+                            <h4 class="font-bold text-xs text-olive-950 dark:text-white">Cooling Pitta</h4>
+                            <p class="text-[10px] text-olive-700 dark:text-olive-300 font-mono">432 Hz • Harmony</p>
+                        </button>
+                        <button onclick="setSoundFrequency('kapha')" id="sfKapha" class="p-4 rounded-xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition text-center space-y-2">
+                            <i class="fa-solid fa-fire text-sand-gold text-2xl"></i>
+                            <h4 class="font-bold text-xs text-olive-950 dark:text-white">Warming Kapha</h4>
+                            <p class="text-[10px] text-olive-700 dark:text-olive-300 font-mono">528 Hz • Awaken</p>
+                        </button>
+                    </div>
+
+                    <div class="space-y-2 pt-2">
+                        <div class="flex justify-between items-center text-xs font-semibold text-olive-700 dark:text-olive-200">
+                            <span>Resonant Volume</span>
+                            <span id="soundVolLabel">50%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" oninput="changeSoundVolume(this.value)" class="w-full accent-sand-gold bg-olive-300 dark:bg-olive-800 rounded-lg h-1.5 appearance-none">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 flex flex-col items-center justify-center p-8 bg-olive-950 rounded-3xl border border-sand-gold/20 relative min-h-[300px]">
+                    <canvas id="frequencyCanvas" class="w-full h-44 rounded-xl mb-6 bg-olive-950/80"></canvas>
+                    <div class="flex items-center gap-4">
+                        <button onclick="toggleSoundTherapy()" id="soundPlayBtn" class="px-8 py-3.5 bg-sand-gold hover:bg-sand-goldHover text-olive-900 font-bold rounded-full transition shadow-lg flex items-center gap-2 text-xs uppercase tracking-widest">
+                            <i id="soundPlayIcon" class="fa-solid fa-play"></i> <span id="soundPlayText">Activate Resonance</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ama detox section -->
+        <section id="ama-test" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="text-xs tracking-widest uppercase font-bold text-sand-gold">Internal Purity</div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white leading-tight">Ama Calculator (Toxin Assessment)</h2>
+                    <p class="text-sm text-olive-700 dark:text-olive-200">
+                        In Ayurvedic science, *Ama* refers to metabolic toxic residues that accumulate when digestion is incomplete. Select any symptoms you experience:
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <label class="flex items-start gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateAma()" class="ama-checkbox mt-1 accent-sand-gold">
+                            <div>
+                                <h4 class="text-sm font-semibold text-olive-950 dark:text-white">White Coating on Tongue</h4>
+                                <p class="text-xs text-olive-750 dark:text-olive-300">Notably visible first thing upon morning awakening.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateAma()" class="ama-checkbox mt-1 accent-sand-gold">
+                            <div>
+                                <h4 class="text-sm font-semibold text-olive-950 dark:text-white">Heavy Joints or Limbs</h4>
+                                <p class="text-xs text-olive-750 dark:text-olive-300">Feeling of general somatic stiffness or lack of physical agility.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateAma()" class="ama-checkbox mt-1 accent-sand-gold">
+                            <div>
+                                <h4 class="text-sm font-semibold text-olive-950 dark:text-white">Morning Sluggishness</h4>
+                                <p class="text-xs text-olive-750 dark:text-olive-300">Difficulty waking up even after 8+ hours of uninterrupted sleep.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateAma()" class="ama-checkbox mt-1 accent-sand-gold">
+                            <div>
+                                <h4 class="text-sm font-semibold text-olive-950 dark:text-white">Frequent Gas & Bloating</h4>
+                                <p class="text-xs text-olive-750 dark:text-olive-300">Feeling distended or uncomfortable after consuming clean food.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateAma()" class="ama-checkbox mt-1 accent-sand-gold">
+                            <div>
+                                <h4 class="text-sm font-semibold text-olive-950 dark:text-white">Weak or Unstable Agni</h4>
+                                <p class="text-xs text-olive-750 dark:text-olive-300">Irregular digestive fire, feeling full easily or facing severe fatigue post-meals.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateAma()" class="ama-checkbox mt-1 accent-sand-gold">
+                            <div>
+                                <h4 class="text-sm font-semibold text-olive-950 dark:text-white">Foggy Mind & Fatigue</h4>
+                                <p class="text-xs text-olive-750 dark:text-olive-300">Lack of clarity, mental heavy fatigue, difficulty focusing.</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-sand-200/50 dark:bg-olive-900/30 p-8 rounded-3xl border border-sand-gold/20 flex flex-col justify-between space-y-6">
+                    <div class="text-center space-y-4">
+                        <h4 class="font-serif text-2xl font-bold text-olive-950 dark:text-white">Ama Assessment Result</h4>
+                        <div class="relative w-40 h-40 mx-auto flex items-center justify-center rounded-full border-4 border-sand-gold transition-colors duration-500" id="amaProgressCircle">
+                            <div class="text-center">
+                                <h3 id="amaPercent" class="font-serif text-4xl font-semibold text-olive-950 dark:text-white">0%</h3>
+                                <p id="amaLevelLabel" class="text-[9px] uppercase font-bold tracking-widest text-olive-700 mt-1">Perfect Purity</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="amaAdvice" class="p-4 bg-sand-100 dark:bg-olive-950 rounded-2xl border border-sand-gold/10 text-xs text-olive-700 dark:text-olive-200 text-center leading-relaxed">
+                        Your system exhibits exemplary metabolic processing. Maintain this pure state with organic lifestyle choices!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Spices Section -->
+        <section id="spices" class="py-24 bg-olive-200 dark:bg-olive-900/45 px-6 md:px-12 border-y border-sand-gold/15">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center flex flex-col items-center gap-3 mb-12">
+                    <span class="text-xs font-bold text-sand-gold tracking-widest uppercase">The Kitchen Pharmacy</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white">Ayurvedic Spice Apothecary</h2>
+                    <p class="text-sm text-olive-700 dark:text-olive-300 max-w-md">Every single organic spice acts as targeted metabolic medicine to regulate digestive Agni.</p>
+                </div>
+
+                <div class="flex justify-center gap-3 mb-10 overflow-x-auto whitespace-nowrap pb-2">
+                    <button onclick="setSpicesTab('vata')" id="spiceTabVata" class="px-6 py-2.5 bg-sand-gold text-olive-900 font-bold text-xs uppercase tracking-wider rounded-full transition">Vata Spices</button>
+                    <button onclick="setSpicesTab('pitta')" id="spiceTabPitta" class="px-6 py-2.5 bg-sand-100/50 dark:bg-olive-900/15 text-olive-800 dark:text-olive-200 font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-sand-200 transition">Pitta Spices</button>
+                    <button onclick="setSpicesTab('kapha')" id="spiceTabKapha" class="px-6 py-2.5 bg-sand-100/50 dark:bg-olive-900/15 text-olive-800 dark:text-olive-200 font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-sand-200 transition">Kapha Spices</button>
+                </div>
+
+                <div id="spicesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Spices dynamically generated by Javascript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dinacharya rituals checklist -->
+        <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-b border-sand-gold/15">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="text-xs tracking-widest uppercase font-bold text-sand-gold">Daily Rhythms</div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white leading-tight">Dinacharya: Sattva Daily Planner</h2>
+                    <p class="text-sm text-olive-700 dark:text-olive-200">
+                        *Dinacharya* represents the classical Vedic sequence of daily rituals to purge toxins and align bodily rhythms. Check the rituals completed today:
+                    </p>
+                    
+                    <div id="ritualsContainer" class="space-y-3 pt-2">
+                        <label class="flex items-center gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateSattva()" class="ritual-checkbox accent-sand-gold">
+                            <div class="text-sm font-semibold text-olive-950 dark:text-white">Early Awakening (Brahma Muhurta - before sunrise)</div>
+                        </label>
+                        <label class="flex items-center gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateSattva()" class="ritual-checkbox accent-sand-gold">
+                            <div class="text-sm font-semibold text-olive-950 dark:text-white">Tongue Scraping (Jihva Shodhana to remove Ama)</div>
+                        </label>
+                        <label class="flex items-center gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateSattva()" class="ritual-checkbox accent-sand-gold">
+                            <div class="text-sm font-semibold text-olive-950 dark:text-white">Warm Water Intake (Ushapana to stimulate digestion)</div>
+                        </label>
+                        <label class="flex items-center gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateSattva()" class="ritual-checkbox accent-sand-gold">
+                            <div class="text-sm font-semibold text-olive-950 dark:text-white">Pranayama / Silent Meditation (at least 10 minutes)</div>
+                        </label>
+                        <label class="flex items-center gap-3 p-4 bg-sand-200/40 dark:bg-olive-900/10 border border-sand-gold/15 rounded-xl cursor-pointer hover:border-sand-gold transition">
+                            <input type="checkbox" onchange="recalculateSattva()" class="ritual-checkbox accent-sand-gold">
+                            <div class="text-sm font-semibold text-olive-950 dark:text-white">Self-Massage (Abhyanga with warm sesame or coconut oil)</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-sand-200/50 dark:bg-olive-900/30 p-8 rounded-3xl border border-sand-gold/20 flex flex-col justify-between space-y-6">
+                    <div class="text-center space-y-4">
+                        <h4 class="font-serif text-2xl font-bold text-olive-950 dark:text-white">Sattva Index Today</h4>
+                        <div class="relative w-40 h-40 mx-auto flex items-center justify-center rounded-full border-4 border-sand-gold transition-colors duration-500" id="sattvaProgressCircle">
+                            <div class="text-center">
+                                <h3 id="harmonyIndex" class="font-serif text-4xl font-semibold text-olive-950 dark:text-white">0%</h3>
+                                <p id="sattvaLevelLabel" class="text-[9px] uppercase font-bold tracking-widest text-olive-700 mt-1">Tamas (Inertia)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="sattvaAdvice" class="p-4 bg-sand-100 dark:bg-olive-950 rounded-2xl border border-sand-gold/10 text-xs text-olive-700 dark:text-olive-200 text-center leading-relaxed">
+                        Incorporate morning rituals to establish clean Sattvic rhythms in your physiology!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vegetarian Nutrition Section -->
+        <section id="nutrition" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="text-center flex flex-col items-center gap-3 mb-16">
+                <span class="text-xs font-bold text-sand-gold tracking-widest uppercase">Pure Sustenance</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white leading-tight">Vegetarian Nutrition by Dosha</h2>
+                <p class="text-sm text-olive-750 dark:text-olive-300 max-w-md">In Ayurveda, pure food is considered your absolute primary medicine. Select nutritional guidance customized for your constitution.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Vata food -->
+                <div class="premium-card p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-water text-sand-gold text-2xl"></i>
+                            <span class="text-[9px] bg-olive-100 text-sand-gold border border-sand-gold/30 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Vata Diet</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-olive-950 dark:text-white">Vata Balance</h4>
+                        <div class="space-y-3 text-sm leading-relaxed">
+                            <div class="text-olive-900 dark:text-olive-200">
+                                <strong class="text-olive-900 dark:text-white block mb-1">Recommended:</strong> warm soups, thoroughly cooked grains, roasted root vegetables, wholesome nuts, ripe avocado, sweet dates, coconut, and ghee.
+                            </div>
+                            <div class="text-olive-700 dark:text-olive-350">
+                                <strong class="text-olive-800 dark:text-white block mb-1">Avoid:</strong> iced cold drinks, excessively dry crackers, raw cabbage, tart apples, and cold raw salads.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pitta food -->
+                <div class="premium-card p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-leaf text-sand-gold text-2xl"></i>
+                            <span class="text-[9px] bg-olive-100 text-sand-gold border border-sand-gold/30 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Pitta Diet</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-olive-950 dark:text-white">Pitta Balance</h4>
+                        <div class="space-y-3 text-sm leading-relaxed">
+                            <div class="text-olive-900 dark:text-olive-200">
+                                <strong class="text-olive-900 dark:text-white block mb-1">Recommended:</strong> cooling cucumbers, summer zucchini, fresh broccoli, sweet coconut flesh, sweet organic melons, premium ghee, and split mung dal.
+                            </div>
+                            <div class="text-olive-700 dark:text-olive-350">
+                                <strong class="text-olive-800 dark:text-white block mb-1">Avoid:</strong> sharp spicy chilies, heavily fried food, acidic tomatoes, garlic, and vinegar-rich items.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kapha food -->
+                <div class="premium-card p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-fire text-sand-gold text-2xl"></i>
+                            <span class="text-[9px] bg-olive-100 text-sand-gold border border-sand-gold/30 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Kapha Diet</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-olive-950 dark:text-white">Kapha Balance</h4>
+                        <div class="space-y-3 text-sm leading-relaxed">
+                            <div class="text-olive-900 dark:text-olive-200">
+                                <strong class="text-olive-900 dark:text-white block mb-1">Recommended:</strong> dense leafy greens, dry organic lentils, freshly grated ginger root, buckwheat, baked organic apples, fresh pomegranate, and raw honey.
+                            </div>
+                            <div class="text-olive-700 dark:text-olive-350">
+                                <strong class="text-olive-800 dark:text-white block mb-1">Avoid:</strong> heavy dairy, frozen desserts, processed white flour, and excessively salty fried snacks.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Culinary Alchemy Box -->
+            <div class="mt-16 premium-card p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sand-200/50 border border-sand-gold/30 text-xs font-semibold text-sand-gold uppercase tracking-wider">
+                            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2.69C11.5,4.78 10,7.31 9.5,9.31M12,12C13,14 15,16.5 15.5,18.5"/></svg> Culinary Alchemy
+                        </div>
+                        <h3 class="font-serif text-2xl md:text-3xl font-light text-olive-950 dark:text-white leading-tight">Vedic Kitchen Culinary Alchemy</h3>
+                        <p class="text-xs text-olive-700 dark:text-olive-200 leading-relaxed">
+                            Input your raw kitchen ingredients, specify your target constitutional type, and generate a customized healing recipe designed to balance your dosha.
+                        </p>
+                        
+                        <div class="space-y-4 pt-2">
+                            <div>
+                                <label class="block text-[9px] font-bold text-olive-900 dark:text-sand-200 uppercase tracking-widest mb-2">Target Dosha:</label>
+                                <select id="recipeDosha" class="w-full px-4 py-3 rounded-xl border border-sand-gold bg-sand-100/70 dark:bg-olive-950 text-xs text-olive-950 dark:text-white focus:outline-none focus:border-sand-gold transition">
+                                    <option value="Vata">Vata (Air + Ether)</option>
+                                    <option value="Pitta">Pitta (Fire + Water)</option>
+                                    <option value="Kapha">Kapha (Earth + Water)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[9px] font-bold text-olive-900 dark:text-sand-200 uppercase tracking-widest mb-2">Available Ingredients:</label>
+                                <input id="recipeIngredients" type="text" placeholder="e.g., basmati rice, zucchini, split mung beans" class="w-full px-4 py-3 rounded-xl border border-sand-gold bg-sand-100/70 dark:bg-olive-950 text-xs text-olive-950 dark:text-white focus:outline-none focus:border-sand-gold transition">
+                            </div>
+                            <button onclick="generateAIRecipe()" class="w-full py-3.5 bg-sand-gold hover:bg-sand-goldHover text-olive-900 font-bold rounded-xl transition flex items-center justify-center gap-2 text-xs uppercase tracking-widest">
+                                <i class="fa-solid fa-fire"></i> Build Healing Recipe
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Output Panel -->
+                    <div class="lg:col-span-7 bg-sand-100/60 dark:bg-olive-950/50 p-6 md:p-8 rounded-2xl border border-sand-gold/15 min-h-[350px] flex flex-col justify-center relative">
+                        <div id="recipePlaceholder" class="text-center space-y-4">
+                            <i class="fa-solid fa-bowl-rice text-5xl text-sand-gold animate-pulse"></i>
+                            <p class="text-xs text-olive-750 dark:text-olive-300 max-w-xs mx-auto">Input your culinary ingredients above to formulate custom Ayurvedic dietary recipe.</p>
+                        </div>
+                        <div id="recipeLoader" class="hidden text-center space-y-4 mx-auto">
+                            <div class="w-12 h-12 rounded-full border-4 border-t-sand-gold border-sand-200 animate-spin mx-auto"></div>
+                            <p class="text-xs text-sand-gold font-semibold uppercase tracking-wider animate-pulse">Formulating clean spice combinations...</p>
+                        </div>
+                        <div id="recipeOutput" class="hidden text-olive-900 dark:text-olive-100 text-sm max-h-[420px] overflow-y-auto pr-2 space-y-4 scrollbar-none">
+                            <!-- Injected by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Sage Chat Section -->
+        <section id="ai-sage" class="py-24 bg-olive-200 dark:bg-olive-900/30 border-t border-sand-gold/15 relative">
+            <div class="absolute inset-0 pointer-events-none opacity-25">
+                <div class="absolute top-1/4 left-10 w-96 h-96 bg-sand-gold/20 blur-[130px]"></div>
+                <div class="absolute bottom-1/4 right-10 w-80 h-80 bg-olive-300/30 blur-[120px]"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
+                <div class="text-center flex flex-col items-center gap-3 mb-12">
+                    <span class="text-xs font-bold text-sand-gold tracking-widest uppercase">Sacred Vedic Wisdom</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white">Ayurvedic Guide Vaidya</h2>
+                    <p class="text-sm text-olive-750 dark:text-olive-200 max-w-xl">
+                        Address your health and wellness questions to Vaidya. The guide can utilize details from your active session (test results, toxin index, Sattva level) for personalized wellness feedback.
+                    </p>
+                </div>
+
+                <!-- Chat Box Wrapper -->
+                <div class="premium-card rounded-3xl shadow-2xl overflow-hidden flex flex-col min-h-[550px]">
+                    <!-- Chat Header -->
+                    <div class="bg-sand-200/90 dark:bg-olive-900/60 p-4 md:p-6 border-b border-sand-gold/15 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <i class="fa-solid fa-spa text-3xl text-sand-gold"></i>
+                                <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-olive-900 rounded-full animate-ping"></span>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-base font-bold text-olive-950 dark:text-white">Vaidya</h4>
+                                <span class="text-[8px] text-sand-gold font-bold uppercase tracking-widest">Your Ayurvedic Guide</span>
+                            </div>
+                        </div>
+
+                        <!-- Context Info Badges -->
+                        <div class="flex flex-wrap gap-2 text-[8px] font-bold">
+                            <span id="badgeDosha" class="bg-olive-100 text-sand-gold border border-sand-gold/30 px-2.5 py-1 rounded-full">DOSHA: NOT DETERMINED</span>
+                            <span id="badgeAma" class="bg-olive-100 text-sand-gold border border-sand-gold/30 px-2.5 py-1 rounded-full">AMA: 0% (NORMAL)</span>
+                            <span id="badgeSattva" class="bg-olive-100 text-sand-gold border border-sand-gold/30 px-2.5 py-1 rounded-full">SATTVA: 0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Chat Log -->
+                    <div id="chatHistory" class="flex-1 p-6 space-y-4 overflow-y-auto max-h-[350px] min-h-[300px] flex flex-col bg-sand-100/30 dark:bg-olive-950/20 scrollbar-none">
+                        <div class="self-start max-w-[85%] bg-sand-200/80 dark:bg-olive-900/40 p-4 rounded-2xl rounded-tl-none border border-sand-gold/10 text-xs leading-relaxed text-olive-900 dark:text-olive-100">
+                            Namaste, dear seeker of harmony! 🙏 <br><br>
+                            I am Vaidya, guardian of Ayurvedic wisdom. I am here to listen to your path and guide your physical temple and mind to absolute balance. Ask me about herbs, lifestyle, or pure sleep.
+                        </div>
+                    </div>
+
+                    <!-- Typing indicator -->
+                    <div id="aiChatTyping" class="hidden px-6 py-2.5 bg-sand-200/30 dark:bg-olive-900/30 text-[9px] text-sand-gold italic flex items-center gap-1.5 border-t border-sand-gold/10">
+                        <span class="flex gap-1">
+                            <span class="w-1.5 h-1.5 bg-sand-gold rounded-full animate-bounce"></span>
+                            <span class="w-1.5 h-1.5 bg-sand-gold rounded-full animate-bounce" style="animation-delay: 0.2s;"></span>
+                            <span class="w-1.5 h-1.5 bg-sand-gold rounded-full animate-bounce" style="animation-delay: 0.4s;"></span>
+                        </span>
+                        <span>Vaidya is referencing sacred Ayurvedic texts...</span>
+                    </div>
+
+                    <!-- Dynamic prompt helpers -->
+                    <div class="p-4 bg-sand-200/25 border-t border-sand-gold/10 flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-none">
+                        <button onclick="sendQuickPrompt('Which pranayama relieves acute stress?')" class="text-[9px] bg-sand-100 dark:bg-olive-900/40 border border-sand-gold/15 text-olive-900 dark:text-olive-200 px-3 py-1.5 rounded-full hover:bg-sand-200 transition">Pranayama for stress</button>
+                        <button onclick="sendQuickPrompt('How do I reduce elevated Ama levels?')" class="text-[9px] bg-sand-100 dark:bg-olive-900/40 border border-sand-gold/15 text-olive-900 dark:text-olive-200 px-3 py-1.5 rounded-full hover:bg-sand-200 transition">How to reduce Ama</button>
+                        <button onclick="sendQuickPrompt('Please outline the optimal Dinacharya morning routine.')" class="text-[9px] bg-sand-100 dark:bg-olive-900/40 border border-sand-gold/15 text-olive-900 dark:text-olive-200 px-3 py-1.5 rounded-full hover:bg-sand-200 transition">Optimal Dinacharya routine</button>
+                    </div>
+
+                    <!-- Input block -->
+                    <div class="p-4 bg-sand-200/60 dark:bg-olive-900/30 border-t border-sand-gold/15 flex items-center gap-3">
+                        <input id="chatInput" type="text" onkeydown="handleChatKeyDown(event)" placeholder="Ask Vaidya... (e.g. 'Is sesame oil suitable for my daily massage?')" class="flex-1 bg-sand-100 dark:bg-olive-950 border border-sand-gold/20 rounded-xl px-4 py-3.5 text-xs text-olive-950 dark:text-white focus:outline-none focus:border-sand-gold transition">
+                        <button onclick="sendChatMessage()" class="p-3.5 bg-sand-gold hover:bg-sand-goldHover text-olive-900 rounded-xl transition flex items-center justify-center">
+                            <svg class="w-4 h-4 transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="text-center flex flex-col items-center gap-3 mb-16">
+                <span class="text-xs font-bold text-sand-gold tracking-widest uppercase">Testimonials</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white">Stories of Pure Balance</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="premium-card p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <p class="text-xs italic text-olive-750 dark:text-olive-200 leading-relaxed">
+                        "I struggled with chronic anxious thoughts and always felt cold (classic Vata). Since using this system and following the daily 'Sama Vritti' breathing, I feel incredibly grounded and stable."
+                    </p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-user text-sand-gold text-2xl"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-olive-950 dark:text-white">Maria K.</h4>
+                            <span class="text-[8px] text-sand-gold font-semibold uppercase tracking-widest">Vata Constitution</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="premium-card p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <p class="text-xs italic text-olive-750 dark:text-olive-200 leading-relaxed">
+                        "As a fast-paced business owner, I am highly prone to hot flushes and acidity. Switching to cooling food and Sitali pranayama has entirely harmonized my daily focus. Absolute genius wellness system."
+                    </p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-user text-sand-gold text-2xl"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-olive-950 dark:text-white">Alexander M.</h4>
+                            <span class="text-[8px] text-sand-gold font-semibold uppercase tracking-widest">Pitta Constitution</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="premium-card p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <p class="text-xs italic text-olive-750 dark:text-olive-200 leading-relaxed">
+                        "I used to wake up sluggish with a thick coating on my tongue. Implementing the hot ginger water detox and tongue scraping here rapidly reduced my Ama. Absolute recommendation!"
+                    </p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-user text-sand-gold text-2xl"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-olive-950 dark:text-white">Olga D.</h4>
+                            <span class="text-[8px] text-sand-gold font-semibold uppercase tracking-widest">Kapha Constitution</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation Booking Section -->
+        <section id="consultation" class="py-24 px-6 md:px-12 max-w-4xl mx-auto relative z-10">
+            <div class="premium-card p-8 md:p-12 rounded-3xl shadow-2xl text-center space-y-8">
+                <div class="space-y-3">
+                    <span class="text-xs font-bold text-sand-gold tracking-widest uppercase">Individual Path</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-olive-950 dark:text-white">Ayurvedic Consultation</h2>
+                    <p class="text-sm text-olive-750 dark:text-olive-250 max-w-lg mx-auto">
+                        Embark on a customized journey. Secure your personal Dinacharya planning, dietary schedules, herbal therapy, and stress management coaching.
+                    </p>
+                </div>
+                
+                <form id="bookingForm" onsubmit="sendBookingWhatsApp(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                    <input type="text" id="bName" required placeholder="Your Full Name" class="w-full px-4 py-3.5 rounded-xl border border-sand-gold bg-sand-100/60 dark:bg-olive-950 text-xs text-olive-950 dark:text-white focus:outline-none focus:border-sand-gold transition">
+                    <input type="tel" id="bPhone" required placeholder="Phone / WhatsApp" class="w-full px-4 py-3.5 rounded-xl border border-sand-gold bg-sand-100/60 dark:bg-olive-950 text-xs text-olive-950 dark:text-white focus:outline-none focus:border-sand-gold transition">
+                    <input type="email" id="bEmail" required placeholder="Email Address" class="w-full px-4 py-3.5 rounded-xl border border-sand-gold bg-sand-100/60 dark:bg-olive-950 text-xs text-olive-950 dark:text-white focus:outline-none focus:border-sand-gold transition md:col-span-2">
+                    <textarea id="bComment" rows="4" placeholder="Please describe the topic of your interest..." class="w-full px-4 py-3.5 rounded-xl border border-sand-gold bg-sand-100/60 dark:bg-olive-950 text-xs text-olive-950 dark:text-white focus:outline-none focus:border-sand-gold transition md:col-span-2"></textarea>
+                    
+                    <button type="submit" class="w-full md:col-span-2 py-4 bg-olive-700 hover:bg-olive-800 dark:bg-sand-gold dark:hover:bg-sand-goldHover text-white dark:text-olive-900 font-bold uppercase text-xs tracking-widest rounded-xl transition shadow-md mt-2">
+                        Begin Your Journey
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-olive-900 text-sand-200 py-16 border-t border-sand-gold/15">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <a href="#" class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-sand-gold" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4C13,6 14.5,8.5 15,10.5C14,10 13,9.5 12,9.5C11,9.5 10,10 9,10.5C9.5,8.5 11,6 12,4M12,18C11,16 9.5,13.5 9,11.5C10,12 11,12.5 12,12.5C13,12.5 14,12 15,11.5C14.5,13.5 13,16 12,18Z"/>
+                    </svg>
+                    <span class="font-serif text-xl font-medium tracking-wide text-white">Vaidya<span class="text-sand-gold font-light">Guide</span></span>
+                </a>
+                <p class="text-xs text-sand-200/60 leading-relaxed">
+                    Connecting ancient Vedic wellness wisdom with modern cellular science. Aligning cosmic five elements in your somatic ecology.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-serif text-sm font-bold text-white mb-4">Science</h4>
+                <div class="flex flex-col gap-2 text-xs text-sand-200/80">
+                    <a href="#about" class="hover:text-sand-gold transition">Ayurvedic Principles</a>
+                    <a href="#doshas" class="hover:text-sand-gold transition">The Three Doshas</a>
+                    <a href="#test-section" class="hover:text-sand-gold transition">Dosha Test</a>
+                    <a href="#spices" class="hover:text-sand-gold transition">Spice Apothecary</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-serif text-sm font-bold text-white mb-4">Therapy</h4>
+                <div class="flex flex-col gap-2 text-xs text-sand-200/80">
+                    <a href="#breathing" class="hover:text-sand-gold transition">Pranayama Coach</a>
+                    <a href="#soundscapes" class="hover:text-sand-gold transition">Acoustic Therapy</a>
+                    <a href="#ama-test" class="hover:text-sand-gold transition">Toxin Traker</a>
+                    <a href="#ai-sage" class="hover:text-sand-gold transition">Ayurvedic Guide Vaidya</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-serif text-sm font-bold text-white mb-4">Contact Details</h4>
+                <div class="flex flex-col gap-2 text-xs text-sand-200/80">
+                    <a href="https://wa.me/380987636693" target="_blank" class="flex items-center gap-2 hover:text-sand-gold transition">
+                        <i class="fa-solid fa-phone text-sand-gold"></i> +380 98 763 6693
+                    </a>
+                    <a href="mailto:anuradhapsdg@gmail.com" class="flex items-center gap-2 hover:text-sand-gold transition">
+                        <i class="fa-solid fa-envelope text-sand-gold"></i> anuradhapsdg@gmail.com
+                    </a>
+                    <a href="https://instagram.com/ayurveda.balance.iryna" target="_blank" class="flex items-center gap-2 hover:text-sand-gold transition">
+                        <i class="fa-brands fa-instagram text-sand-gold"></i> @ayurveda.balance.iryna
+                    </a>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-earth-americas text-sand-gold"></i> Worldwide Consultations
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-sand-gold/15 flex flex-col md:flex-row justify-between items-center text-[11px] text-sand-200/40 gap-4">
+            <span>© 2026 Vaidya Ayurveda Balance. All rights reserved.</span>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Result Modal (Hidden by Default) -->
+    <div id="resultModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="premium-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-6 md:p-8 border border-sand-gold/25 shadow-2xl relative space-y-6 scrollbar-none">
+            <button onclick="closeResultModal()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-sand-200/40 text-olive-850 dark:text-sand-200 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="text-center space-y-2 border-b border-sand-gold/15 pb-4">
+                <span class="text-xs font-bold text-sand-gold uppercase tracking-widest">Your Constitutional Result</span>
+                <h3 class="font-serif text-3xl font-semibold text-olive-950 dark:text-white" id="modalDoshaTitle">Dominant: Vata</h3>
+            </div>
+
+            <!-- Score visualizers (bars) -->
+            <div class="space-y-3">
+                <h4 class="text-xs font-bold text-olive-900 dark:text-sand-200 uppercase tracking-wider">Elementary balance breakdown:</h4>
+                <div class="space-y-2">
+                    <!-- Vata bar -->
+                    <div>
+                        <div class="flex justify-between text-[11px] font-semibold text-olive-750 dark:text-sand-200 mb-1">
+                            <span>Vata (Air + Ether)</span>
+                            <span id="modalVataVal">33%</span>
+                        </div>
+                        <div class="w-full bg-olive-100 dark:bg-olive-800 h-2 rounded-full overflow-hidden">
+                            <div id="modalVataBar" class="bg-sand-gold h-full transition-all duration-500" style="width: 33%;"></div>
+                        </div>
+                    </div>
+                    <!-- Pitta bar -->
+                    <div>
+                        <div class="flex justify-between text-[11px] font-semibold text-olive-750 dark:text-sand-200 mb-1">
+                            <span>Pitta (Fire + Water)</span>
+                            <span id="modalPittaVal">33%</span>
+                        </div>
+                        <div class="w-full bg-olive-100 dark:bg-olive-800 h-2 rounded-full overflow-hidden">
+                            <div id="modalPittaBar" class="bg-sand-gold/80 h-full transition-all duration-500" style="width: 33%;"></div>
+                        </div>
+                    </div>
+                    <!-- Kapha bar -->
+                    <div>
+                        <div class="flex justify-between text-[11px] font-semibold text-olive-750 dark:text-sand-200 mb-1">
+                            <span>Kapha (Earth + Water)</span>
+                            <span id="modalKaphaVal">33%</span>
+                        </div>
+                        <div class="w-full bg-olive-100 dark:bg-olive-800 h-2 rounded-full overflow-hidden">
+                            <div id="modalKaphaBar" class="bg-sand-gold/60 h-full transition-all duration-500" style="width: 33%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Structured info cards inside modal -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="p-4 bg-sand-100/50 dark:bg-olive-900/30 border border-sand-gold/15 rounded-2xl">
+                    <h5 class="font-bold text-olive-950 dark:text-white uppercase mb-2">Strengths:</h5>
+                    <p id="modalStrengths" class="leading-relaxed text-olive-750 dark:text-olive-200">Processing...</p>
+                </div>
+                <div class="p-4 bg-sand-100/50 dark:bg-olive-900/30 border border-sand-gold/15 rounded-2xl">
+                    <h5 class="font-bold text-olive-950 dark:text-white uppercase mb-2">Imbalances:</h5>
+                    <p id="modalImbalances" class="leading-relaxed text-olive-750 dark:text-olive-200">Processing...</p>
+                </div>
+                <div class="p-4 bg-sand-100/50 dark:bg-olive-900/30 border border-sand-gold/15 rounded-2xl md:col-span-2">
+                    <h5 class="font-bold text-olive-950 dark:text-white uppercase mb-2">Recommended Diet & Spices:</h5>
+                    <p id="modalDiet" class="leading-relaxed text-olive-750 dark:text-olive-200">Processing...</p>
+                </div>
+                <div class="p-4 bg-sand-100/50 dark:bg-olive-900/30 border border-sand-gold/15 rounded-2xl md:col-span-2">
+                    <h5 class="font-bold text-olive-950 dark:text-white uppercase mb-2">Daily Routine (Dinacharya):</h5>
+                    <p id="modalRoutine" class="leading-relaxed text-olive-750 dark:text-olive-200">Processing...</p>
+                </div>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row gap-4">
+                <button onclick="closeResultModal(); window.location.href='#consultation';" class="flex-1 py-3.5 bg-olive-700 hover:bg-olive-800 text-white font-bold rounded-xl text-center text-xs uppercase tracking-widest transition">
+                    Begin Your Journey
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elegant Toast Container -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden max-w-sm w-full bg-sand-100 dark:bg-olive-900 border border-sand-gold/20 p-4 rounded-2xl shadow-2xl flex items-start gap-3 transition-all transform translate-y-2 opacity-0">
+        <span id="toastIcon" class="text-xl"></span>
+        <div class="flex-1">
+            <h4 id="toastTitle" class="text-xs font-bold text-olive-950 dark:text-white">Notice</h4>
+            <p id="toastMessage" class="text-[11px] text-olive-750 dark:text-olive-200 mt-1">Alert completed!</p>
+        </div>
+    </div>
+
+    <script>
+        let isDarkMode = false;
+        let quizAnswers = { vata: 0, pitta: 0, kapha: 0 };
+        let activeDosha = 'Not determined';
+        let currentSattva = 0;
+        let currentAma = 0;
+        
+        // English Spices Data Store
+        const spicesData = {
+            vata: [
+                { name: "Fresh Ginger", desc: "Ignites digestive Agni, supports circulation, expels internal accumulation of cold.", temp: "Warming", recipe: "Add freshly grated ginger to boiled water or organic soups." },
+                { name: "Cardamom", desc: "The king of spices. Supports nervous system and clears toxins in stomach.", temp: "Mildly Warming", recipe: "Stir into morning oatmeal or tea mixtures." },
+                { name: "Cinnamon", desc: "Supports balanced blood sugar and metabolic circulation.", temp: "Warming", recipe: "Sprinkle over baked apples, pumpkin, or warm drinks." }
+            ],
+            pitta: [
+                { name: "Coriander / Cilantro", desc: "Highly cooling. Balances excess heat in stomach and supports clear skin.", temp: "Cooling", recipe: "Garnish stews and cooked grains with fresh cilantro leaves." },
+                { name: "Fennel Seeds", desc: "Ignites digestive Agni gently without causing heartburn.", temp: "Cooling", recipe: "Brew 1 tsp of seeds in hot water as post-meal tea." },
+                { name: "Turmeric", desc: "Clears blood impurities and supports flexible somatic structure.", temp: "Mildly Warming", recipe: "Mix with ghee and lightly saute with organic vegetables." }
+            ],
+            kapha: [
+                { name: "Black Pepper", desc: "Helps clear mucus and accelerates sluggish metabolic functions.", temp: "Highly Warming", recipe: "Freshly grind onto heavy legumes or grains." },
+                { name: "Mustard Seeds", desc: "Expels excessive chest congestion and ignites slow appetite.", temp: "Warming", recipe: "Pop in warm ghee before stir-frying root vegetables." },
+                { name: "Clove", desc: "Clears respiratory passages and eliminates physical sluggishness.", temp: "Highly Warming", recipe: "Brew directly into hot spiced drinks or herbal tea." }
+            ]
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            detectSystemTheme();
+            setSpicesTab('vata');
+            initCanvas();
+            recalculateSattva();
+            recalculateAma();
+            updateChatContextBadges();
+        });
+
+        function detectSystemTheme() {
+            if (localStorage.getItem('theme') === 'dark' || 
+                (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                isDarkMode = true;
+                document.getElementById('themeIcon').className = 'fa-solid fa-sun text-lg text-sand-gold';
+            } else {
+                document.documentElement.classList.remove('dark');
+                isDarkMode = false;
+                document.getElementById('themeIcon').className = 'fa-solid fa-moon text-lg text-sand-gold';
+            }
+        }
+
+        function toggleDarkMode() {
+            if (isDarkMode) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                document.getElementById('themeIcon').className = 'fa-solid fa-moon text-lg text-sand-gold';
+                isDarkMode = false;
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                document.getElementById('themeIcon').className = 'fa-solid fa-sun text-lg text-sand-gold';
+                isDarkMode = true;
+            }
+            showToast("Theme Toggled", "Harmonizing wellness space visuals...", "info");
+        }
+
+        function toggleMobileMenu() {
+            const mMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            mMenu.classList.toggle('hidden');
+            if (mMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-2xl';
+            }
+        }
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+                document.getElementById('menuIcon').className = 'fa-solid fa-bars text-2xl';
+            });
+        });
+
+        let activeQuizStep = 1;
+        const totalQuizSteps = 6;
+
+        function navigateStep(direction) {
+            document.querySelector(`.quiz-step[data-step="${activeQuizStep}"]`).classList.add('hidden');
+            
+            activeQuizStep += direction;
+            if (activeQuizStep < 1) activeQuizStep = 1;
+            if (activeQuizStep > totalQuizSteps) activeQuizStep = totalQuizSteps;
+
+            document.querySelector(`.quiz-step[data-step="${activeQuizStep}"]`).classList.remove('hidden');
+
+            const progressPct = (activeQuizStep / totalQuizSteps) * 100;
+            document.getElementById('quizProgressBar').style.width = `${progressPct}%`;
+
+            document.getElementById('prevBtn').classList.toggle('hidden', activeQuizStep === 1);
+            document.getElementById('nextBtn').classList.toggle('hidden', activeQuizStep === totalQuizSteps);
+            document.getElementById('submitBtn').classList.toggle('hidden', activeQuizStep !== totalQuizSteps);
+        }
+
+        function calculateDosha(event) {
+            event.preventDefault();
+            quizAnswers = { vata: 0, pitta: 0, kapha: 0 };
+            
+            const form = document.getElementById('doshaQuiz');
+            const formData = new FormData(form);
+            let answersCount = 0;
+            
+            for (let value of formData.values()) {
+                if (quizAnswers[value] !== undefined) {
+                    quizAnswers[value]++;
+                    answersCount++;
+                }
+            }
+
+            if (answersCount < 6) {
+                showToast("Attention", "Please answer all questions before proceeding.", "warning");
+                return;
+            }
+
+            const total = quizAnswers.vata + quizAnswers.pitta + quizAnswers.kapha;
+            const vataPct = Math.round((quizAnswers.vata / total) * 100);
+            const pittaPct = Math.round((quizAnswers.pitta / total) * 100);
+            const kaphaPct = Math.round((quizAnswers.kapha / total) * 100);
+
+            let dominant = 'Vata';
+            let maxVal = quizAnswers.vata;
+            if (quizAnswers.pitta > maxVal) {
+                dominant = 'Pitta';
+                maxVal = quizAnswers.pitta;
+            }
+            if (quizAnswers.kapha > maxVal) {
+                dominant = 'Kapha';
+            }
+
+            activeDosha = dominant;
+
+            document.getElementById('modalDoshaTitle').innerText = `Your Dominant Dosha: ${dominant}`;
+            document.getElementById('modalVataVal').innerText = `${vataPct}%`;
+            document.getElementById('modalPittaVal').innerText = `${pittaPct}%`;
+            document.getElementById('modalKaphaVal').innerText = `${kaphaPct}%`;
+
+            document.getElementById('modalVataBar').style.width = `${vataPct}%`;
+            document.getElementById('modalPittaBar').style.width = `${pittaPct}%`;
+            document.getElementById('modalKaphaBar').style.width = `${kaphaPct}%`;
+
+            fillModalTexts(dominant);
+
+            document.getElementById('resultModal').classList.remove('hidden');
+            updateChatContextBadges();
+            showToast("Calculation complete!", "Your constitutional results are ready.", "success");
+        }
+
+        function fillModalTexts(dosha) {
+            const strengths = document.getElementById('modalStrengths');
+            const imbalances = document.getElementById('modalImbalances');
+            const diet = document.getElementById('modalDiet');
+            const routine = document.getElementById('modalRoutine');
+
+            if (dosha === 'Vata') {
+                strengths.innerText = "Highly creative, mentally agile, quick to learn, rich imagination, deep empathy, and spontaneous nature.";
+                imbalances.innerText = "Prone to acute anxiety, scattered focus, dry skin, somatic coldness, gas, bloating, and irregular sleep patterns.";
+                diet.innerText = "Focus on grounded, warm dishes (soups, cooked grains, roasted root vegetables) with organic ghee, cardamom, cinnamon, and fresh ginger. Minimize dry snacks and excessive raw salads.";
+                routine.innerText = "Arise at 6:00 AM. Practice Abhyanga warm self-massage. Prioritize retiring to sleep before 10:00 PM. Avoid highly exhausting high-intensity cardio exercises.";
+            } else if (dosha === 'Pitta') {
+                strengths.innerText = "Sharp and discerning intellect, highly goal-oriented, competitive drive, natural leadership qualities, and robust metabolic strength.";
+                imbalances.innerText = "Susceptible to frustration, impatience, stomach acidity, inflammatory skin redness, and emotional burn-out.";
+                diet.innerText = "Incorporate cooling herbs and ingredients (coriander, fennel, cucumbers, zucchini, coconut). Strictly avoid hot chilies, fried oils, and excess citrus fruits.";
+                routine.innerText = "Arise by 5:30 AM. Integrate Sitali cooling pranayama. Avoid prolonged mid-day sun exposure, scheduling physical training during cooler hours.";
+            } else {
+                strengths.innerText = "Deep somatic stability, loyalty, calm and patient temperament, powerful stamina, and robust immunity.";
+                imbalances.innerText = "Prone to physical sluggishness, excess weight retention, mucous buildup, fluid retention, and emotional stubbornness.";
+                diet.innerText = "Opt for dry, warming, and lightly spiced meals (buckwheat, split lentils, leafy greens, black pepper, and warm cloves). Strictly avoid heavy cold dairy and sweets.";
+                routine.innerText = "Arise early by 5:00 AM (avoid oversleeping). Start with a warm shower, highly vigorous sun salutations (Yoga), and keep active without daytime sleeping.";
+            }
+        }
+
+        function closeResultModal() {
+            document.getElementById('resultModal').classList.add('hidden');
+        }
+
+        let breathInterval = null;
+        let isBreathingActive = false;
+        let breathTimer = 4;
+        let breathPhase = 'inhale';
+        let breathCycleCount = 0;
+        let breathingConfig = { inhale: 4, holdIn: 4, exhale: 4, holdOut: 4 };
+
+        function setBreathingMode(mode) {
+            document.getElementById('bModeVata').className = "w-full text-left p-4 rounded-2xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition flex items-center justify-between";
+            document.getElementById('bModePitta').className = "w-full text-left p-4 rounded-2xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition flex items-center justify-between";
+            document.getElementById('bModeKapha').className = "w-full text-left p-4 rounded-2xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition flex items-center justify-between";
+
+            if (mode === 'vata') {
+                breathingConfig = { inhale: 4, holdIn: 4, exhale: 4, holdOut: 4 };
+                document.getElementById('bModeVata').className = "w-full text-left p-4 rounded-2xl border border-sand-gold/30 bg-sand-200 dark:bg-olive-850 hover:bg-sand-300 transition flex items-center justify-between";
+            } else if (mode === 'pitta') {
+                breathingConfig = { inhale: 4, holdIn: 2, exhale: 6, holdOut: 0 };
+                document.getElementById('bModePitta').className = "w-full text-left p-4 rounded-2xl border border-sand-gold/30 bg-sand-200 dark:bg-olive-850 hover:bg-sand-300 transition flex items-center justify-between";
+            } else {
+                breathingConfig = { inhale: 1.5, holdIn: 0, exhale: 1.5, holdOut: 0 };
+                document.getElementById('bModeKapha').className = "w-full text-left p-4 rounded-2xl border border-sand-gold/30 bg-sand-200 dark:bg-olive-850 hover:bg-sand-300 transition flex items-center justify-between";
+            }
+            resetBreathing();
+            showToast("Mode Selected", "Breathing intervals recalibrated.", "info");
+        }
+
+        function toggleBreathing() {
+            if (isBreathingActive) {
+                clearInterval(breathInterval);
+                isBreathingActive = false;
+                document.getElementById('breathingPlayIcon').className = 'fa-solid fa-play text-xl';
+            } else {
+                isBreathingActive = true;
+                document.getElementById('breathingPlayIcon').className = 'fa-solid fa-pause text-xl';
+                startBreathingLoop();
+            }
+        }
+
+        function resetBreathing() {
+            clearInterval(breathInterval);
+            isBreathingActive = false;
+            breathCycleCount = 0;
+            breathPhase = 'inhale';
+            breathTimer = breathingConfig.inhale;
+            
+            document.getElementById('breathingPlayIcon').className = 'fa-solid fa-play text-xl';
+            document.getElementById('breathingState').innerText = 'Inhale';
+            document.getElementById('breathingTimer').innerText = breathTimer.toFixed(0);
+            document.getElementById('breathCycles').innerText = '0';
+            document.getElementById('breathingCircle').style.transform = 'scale(1)';
+        }
+
+        function startBreathingLoop() {
+            const circle = document.getElementById('breathingCircle');
+            circle.style.transform = 'scale(1.5)';
+            
+            breathInterval = setInterval(() => {
+                breathTimer -= 1;
+                
+                if (breathTimer <= 0) {
+                    if (breathPhase === 'inhale') {
+                        if (breathingConfig.holdIn > 0) {
+                            breathPhase = 'holdIn';
+                            breathTimer = breathingConfig.holdIn;
+                            document.getElementById('breathingState').innerText = 'Retain';
+                            circle.style.transform = 'scale(1.5)';
+                        } else {
+                            breathPhase = 'exhale';
+                            breathTimer = breathingConfig.exhale;
+                            document.getElementById('breathingState').innerText = 'Exhale';
+                            circle.style.transform = 'scale(1)';
+                        }
+                    } else if (breathPhase === 'holdIn') {
+                        breathPhase = 'exhale';
+                        breathTimer = breathingConfig.exhale;
+                        document.getElementById('breathingState').innerText = 'Exhale';
+                        circle.style.transform = 'scale(1)';
+                    } else if (breathPhase === 'exhale') {
+                        if (breathingConfig.holdOut > 0) {
+                            breathPhase = 'holdOut';
+                            breathTimer = breathingConfig.holdOut;
+                            document.getElementById('breathingState').innerText = 'Suspend';
+                            circle.style.transform = 'scale(1)';
+                        } else {
+                            breathPhase = 'inhale';
+                            breathTimer = breathingConfig.inhale;
+                            document.getElementById('breathingState').innerText = 'Inhale';
+                            circle.style.transform = 'scale(1.5)';
+                            breathCycleCount++;
+                        }
+                    } else {
+                        breathPhase = 'inhale';
+                        breathTimer = breathingConfig.inhale;
+                        document.getElementById('breathingState').innerText = 'Inhale';
+                        circle.style.transform = 'scale(1.5)';
+                        breathCycleCount++;
+                    }
+                }
+
+                document.getElementById('breathingTimer').innerText = Math.max(0, breathTimer).toFixed(0);
+                document.getElementById('breathCycles').innerText = breathCycleCount;
+            }, 1000);
+        }
+
+        let audioCtx = null;
+        let primaryOsc = null;
+        let binauralOsc = null;
+        let gainNode = null;
+        let filterNode = null;
+        let isSoundPlaying = false;
+        let selectedFrequency = 432;
+
+        let canvas, ctx, animationFrame;
+
+        function initCanvas() {
+            canvas = document.getElementById('frequencyCanvas');
+            ctx = canvas.getContext('2d');
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            drawSilentWave();
+        }
+
+        function resizeCanvas() {
+            if (canvas) {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = 176;
+            }
+        }
+
+        function drawSilentWave() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#C5A880';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 2);
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.stroke();
+        }
+
+        function setSoundFrequency(mode) {
+            document.getElementById('sfVata').className = "p-4 rounded-xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition text-center space-y-2";
+            document.getElementById('sfPitta').className = "p-4 rounded-xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition text-center space-y-2";
+            document.getElementById('sfKapha').className = "p-4 rounded-xl border border-sand-gold/15 bg-sand-100/50 dark:bg-olive-850 hover:bg-sand-200 transition text-center space-y-2";
+
+            if (mode === 'vata') {
+                selectedFrequency = 110;
+                document.getElementById('sfVata').className = "p-4 rounded-xl border border-sand-gold bg-sand-200 dark:bg-olive-850 hover:bg-sand-300 transition text-center space-y-2";
+            } else if (mode === 'pitta') {
+                selectedFrequency = 432;
+                document.getElementById('sfPitta').className = "p-4 rounded-xl border border-sand-gold bg-sand-200 dark:bg-olive-850 hover:bg-sand-300 transition text-center space-y-2";
+            } else {
+                selectedFrequency = 528;
+                document.getElementById('sfKapha').className = "p-4 rounded-xl border border-sand-gold bg-sand-200 dark:bg-olive-850 hover:bg-sand-300 transition text-center space-y-2";
+            }
+
+            if (isSoundPlaying && primaryOsc) {
+                primaryOsc.frequency.setValueAtTime(selectedFrequency, audioCtx.currentTime);
+                if (binauralOsc) {
+                    binauralOsc.frequency.setValueAtTime(selectedFrequency + 2, audioCtx.currentTime);
+                }
+            }
+        }
+
+        function toggleSoundTherapy() {
+            if (isSoundPlaying) {
+                stopSound();
+            } else {
+                startSound();
+            }
+        }
+
+        function startSound() {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+
+                primaryOsc = audioCtx.createOscillator();
+                binauralOsc = audioCtx.createOscillator();
+                gainNode = audioCtx.createGain();
+                filterNode = audioCtx.createBiquadFilter();
+
+                primaryOsc.frequency.setValueAtTime(selectedFrequency, audioCtx.currentTime);
+                binauralOsc.frequency.setValueAtTime(selectedFrequency + 2, audioCtx.currentTime);
+
+                if (selectedFrequency === 110) {
+                    primaryOsc.type = 'sine';
+                    binauralOsc.type = 'sine';
+                    filterNode.type = 'lowpass';
+                    filterNode.frequency.setValueAtTime(200, audioCtx.currentTime);
+                } else if (selectedFrequency === 432) {
+                    primaryOsc.type = 'triangle';
+                    binauralOsc.type = 'sine';
+                    filterNode.type = 'lowpass';
+                    filterNode.frequency.setValueAtTime(700, audioCtx.currentTime);
+                } else {
+                    primaryOsc.type = 'triangle';
+                    binauralOsc.type = 'sawtooth';
+                    filterNode.type = 'bandpass';
+                    filterNode.frequency.setValueAtTime(500, audioCtx.currentTime);
+                    filterNode.Q.setValueAtTime(1.2, audioCtx.currentTime);
+                }
+
+                const currentVol = document.querySelector('input[type="range"]').value / 100;
+                gainNode.gain.setValueAtTime(currentVol * 0.35, audioCtx.currentTime);
+
+                primaryOsc.connect(filterNode);
+                binauralOsc.connect(filterNode);
+                filterNode.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                primaryOsc.start();
+                binauralOsc.start();
+
+                isSoundPlaying = true;
+                document.getElementById('soundPlayText').innerText = "Halt Vibrations";
+                document.getElementById('soundPlayIcon').className = "fa-solid fa-pause";
+                
+                animateOscilloscope();
+                showToast("Acoustic Activated", "Deep resonance generator initiated.", "success");
+            } catch (e) {
+                console.error(e);
+                showToast("Audio Error", "Could not initialize sound module.", "warning");
+            }
+        }
+
+        function stopSound() {
+            if (primaryOsc) { primaryOsc.stop(); primaryOsc.disconnect(); }
+            if (binauralOsc) { binauralOsc.stop(); binauralOsc.disconnect(); }
+            isSoundPlaying = false;
+            document.getElementById('soundPlayText').innerText = "Activate Resonance";
+            document.getElementById('soundPlayIcon').className = "fa-solid fa-play";
+            
+            cancelAnimationFrame(animationFrame);
+            drawSilentWave();
+        }
+
+        function changeSoundVolume(val) {
+            document.getElementById('soundVolLabel').innerText = `${val}%`;
+            if (isSoundPlaying && gainNode) {
+                gainNode.gain.setValueAtTime((val / 100) * 0.35, audioCtx.currentTime);
+            }
+        }
+
+        function animateOscilloscope() {
+            if (!isSoundPlaying) return;
+            animationFrame = requestAnimationFrame(animateOscilloscope);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#C5A880';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+
+            const sliceWidth = canvas.width / 150;
+            let x = 0;
+
+            for (let i = 0; i < 150; i++) {
+                const offset = Math.sin(i * 0.12 + (Date.now() * 0.008)) * 35;
+                const y = (canvas.height / 2) + offset;
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+                x += sliceWidth;
+            }
+            ctx.stroke();
+        }
+
+        function recalculateAma() {
+            const boxes = document.querySelectorAll('.ama-checkbox');
+            let ticked = 0;
+            boxes.forEach(cb => { if (cb.checked) ticked++; });
+
+            currentAma = Math.round((ticked / boxes.length) * 100);
+            document.getElementById('amaPercent').innerText = `${currentAma}%`;
+
+            const circle = document.getElementById('amaProgressCircle');
+            const label = document.getElementById('amaLevelLabel');
+            const advice = document.getElementById('amaAdvice');
+
+            if (currentAma === 0) {
+                circle.style.borderColor = "#C5A880";
+                label.innerText = "Perfect Purity";
+                label.className = "text-[9px] uppercase font-bold tracking-widest text-[#C5A880] mt-1";
+                advice.innerHTML = "Your cellular field is exemplary clean. Retain this pure metabolic state!";
+            } else if (currentAma <= 40) {
+                circle.style.borderColor = "#4D583F";
+                label.innerText = "Moderate Ama";
+                label.className = "text-[9px] uppercase font-bold tracking-widest text-olive-700 dark:text-olive-300 mt-1";
+                advice.innerHTML = "💡 Integrate warm ginger-infused organic water to clear minor metabolic residues.";
+            } else {
+                circle.style.borderColor = "#806D53";
+                label.innerText = "High Ama Levels";
+                label.className = "text-[9px] uppercase font-bold tracking-widest text-[#806D53] mt-1";
+                advice.innerHTML = "⚠️ Avoid frozen dairy, white flour. Drink boiled organic herbs and ingest Triphala powder.";
+            }
+            updateChatContextBadges();
+        }
+
+        function recalculateSattva() {
+            const boxes = document.querySelectorAll('.ritual-checkbox');
+            let ticked = 0;
+            boxes.forEach(cb => { if (cb.checked) ticked++; });
+
+            currentSattva = Math.round((ticked / boxes.length) * 100);
+            document.getElementById('harmonyIndex').innerText = `${currentSattva}%`;
+
+            const circle = document.getElementById('sattvaProgressCircle');
+            const label = document.getElementById('sattvaLevelLabel');
+            const advice = document.getElementById('sattvaAdvice');
+
+            if (currentSattva <= 20) {
+                circle.style.borderColor = "#806D53";
+                label.innerText = "Tamas (Inertia)";
+                label.className = "text-[9px] uppercase font-bold tracking-widest text-[#806D53] mt-1";
+                advice.innerText = "Heavy somatic state. Try tongue scraping tomorrow early morning to expel toxins!";
+            } else if (currentSattva <= 60) {
+                circle.style.borderColor = "#C5A880";
+                label.innerText = "Rajas (Activity)";
+                label.className = "text-[9px] uppercase font-bold tracking-widest text-sand-gold mt-1";
+                advice.innerText = "Active but slightly chaotic mind. Practice Sama Vritti breathing to anchor yourself.";
+            } else {
+                circle.style.borderColor = "#4D583F";
+                label.innerText = "Sattva (Purity)";
+                label.className = "text-[9px] uppercase font-bold tracking-widest text-olive-700 dark:text-olive-300 mt-1";
+                advice.innerText = "Excellent somatic harmony! Your vital cells are clear, vibrant, and peaceful.";
+            }
+            updateChatContextBadges();
+        }
+
+        function setSpicesTab(tab) {
+            document.getElementById('spiceTabVata').className = "px-6 py-2.5 bg-sand-100/50 dark:bg-olive-900/15 text-olive-800 dark:text-olive-200 font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-sand-200 transition";
+            document.getElementById('spiceTabPitta').className = "px-6 py-2.5 bg-sand-100/50 dark:bg-olive-900/15 text-olive-800 dark:text-olive-200 font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-sand-200 transition";
+            document.getElementById('spiceTabKapha').className = "px-6 py-2.5 bg-sand-100/50 dark:bg-olive-900/15 text-olive-800 dark:text-olive-200 font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-sand-200 transition";
+
+            if (tab === 'vata') {
+                document.getElementById('spiceTabVata').className = "px-6 py-2.5 bg-sand-gold text-olive-900 font-bold text-xs uppercase tracking-wider rounded-full transition shadow-md";
+            } else if (tab === 'pitta') {
+                document.getElementById('spiceTabPitta').className = "px-6 py-2.5 bg-sand-gold text-olive-900 font-bold text-xs uppercase tracking-wider rounded-full transition shadow-md";
+            } else {
+                document.getElementById('spiceTabKapha').className = "px-6 py-2.5 bg-sand-gold text-olive-900 font-bold text-xs uppercase tracking-wider rounded-full transition shadow-md";
+            }
+
+            renderSpices(tab);
+        }
+
+        function renderSpices(tab) {
+            const grid = document.getElementById('spicesGrid');
+            grid.innerHTML = '';
+            
+            const list = spicesData[tab];
+            list.forEach(spice => {
+                const card = document.createElement('div');
+                card.className = "premium-card p-6 rounded-2xl shadow-lg flex flex-col justify-between";
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-serif text-lg font-bold text-olive-950 dark:text-white">${spice.name}</h4>
+                            <span class="text-[9px] font-bold bg-sand-100 dark:bg-olive-900/60 text-sand-gold border border-sand-gold/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider">${spice.temp}</span>
+                        </div>
+                        <p class="text-[11px] text-olive-750 dark:text-olive-200 leading-relaxed">${spice.desc}</p>
+                    </div>
+                    <div class="border-t border-sand-gold/15 mt-4 pt-3 text-[10px] text-olive-700 dark:text-olive-350 italic">
+                        Tip: ${spice.recipe}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        async function callGemini(systemPrompt, userQuery) {
+            const apiKey = ""; // Will be injected automatically at runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+
+            let delay = 1000;
+            for (let attempt = 0; attempt < 4; attempt++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (response.status === 429 && attempt < 3) {
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                        continue;
+                    }
+                    if (!response.ok) {
+                        throw new Error(`HTTP Error: ${response.status}`);
+                    }
+                    
+                    const result = await response.json();
+                    const outputText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (outputText) return outputText;
+                    throw new Error("No output text received.");
+                } catch (error) {
+                    if (attempt === 3) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        function parseMarkdownToHTML(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`([^`]+)`/g, '<code class="bg-sand-200/40 px-1.5 py-0.5 rounded text-xs">$1</code>')
+                .replace(/^\s*-\s+(.*?)$/gm, '<li class="ml-4 list-disc mt-1">$1</li>')
+                .replace(/\n/g, '<br>');
+        }
+
+        // Culinary Recipe Builder
+        async function generateAIRecipe() {
+            const dosha = document.getElementById('recipeDosha').value;
+            const ingredients = document.getElementById('recipeIngredients').value.trim();
+            const placeholder = document.getElementById('recipePlaceholder');
+            const loader = document.getElementById('recipeLoader');
+            const output = document.getElementById('recipeOutput');
+
+            if (!ingredients) {
+                showToast("Attention", "Please enter available ingredients.", "warning");
+                return;
+            }
+
+            placeholder.classList.add('hidden');
+            loader.classList.remove('hidden');
+            output.classList.add('hidden');
+
+            const systemPrompt = `You are a legendary Ayurvedic culinary chef. Construct a detailed vegetarian recipe in English using the user's base ingredients. Specify how the dish balances the chosen Dosha ${dosha}, detailing its influence on Agni, somatic tissues, and primary tastes. Structure your response in clean prose with heading titles, ingredients list, step-by-step preparation, and a final spiritual quote on conscious eating. Do not mention any AI or computational logic. Return text purely in English.`;
+            const query = `Dosha: ${dosha}. Kitchen ingredients: ${ingredients}. Construct a balancing recipe.`;
+
+            try {
+                const rawRecipeText = await callGemini(systemPrompt, query);
+                output.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-sand-gold/15 pb-3">
+                            <span class="text-[9px] uppercase font-bold text-sand-gold tracking-widest">Ayurvedic Culinary Alchemy</span>
+                            <span class="text-[9px] bg-sand-gold text-olive-900 px-2 py-0.5 rounded-full font-bold uppercase">${dosha}</span>
+                        </div>
+                        <div class="text-xs text-olive-750 dark:text-olive-200 leading-relaxed space-y-2">
+                            ${parseMarkdownToHTML(rawRecipeText)}
+                        </div>
+                    </div>
+                `;
+                loader.classList.add('hidden');
+                output.classList.remove('hidden');
+                showToast("Recipe ready!", "Culinary formula generated successfully.", "success");
+            } catch (error) {
+                console.error(error);
+                loader.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+                showToast("Error", "Could not build custom recipe.", "warning");
+            }
+        }
+
+        function updateChatContextBadges() {
+            const badgeDosha = document.getElementById('badgeDosha');
+            const badgeAma = document.getElementById('badgeAma');
+            const badgeSattva = document.getElementById('badgeSattva');
+
+            if (badgeDosha) {
+                if (activeDosha !== 'Not determined') {
+                    badgeDosha.innerText = `DOSHA: ${activeDosha.toUpperCase()}`;
+                } else {
+                    badgeDosha.innerText = "DOSHA: NOT DETERMINED";
+                }
+            }
+            if (badgeAma) {
+                let status = "NORMAL";
+                if (currentAma > 40) status = "HIGH";
+                else if (currentAma > 0) status = "MODERATE";
+                badgeAma.innerText = `AMA: ${currentAma}% (${status})`;
+            }
+            if (badgeSattva) {
+                badgeSattva.innerText = `SATTVA: ${currentSattva}%`;
+            }
+        }
+
+        function appendChatMessage(sender, text) {
+            const chatLog = document.getElementById('chatHistory');
+            const bubble = document.createElement('div');
+            
+            if (sender === 'user') {
+                bubble.className = "self-end max-w-[85%] bg-sand-gold text-olive-900 p-4 rounded-2xl rounded-tr-none shadow-md font-medium text-xs leading-relaxed";
+                bubble.innerText = text;
+            } else {
+                bubble.className = "self-start max-w-[85%] bg-sand-200/80 dark:bg-olive-900/40 p-4 rounded-2xl rounded-tl-none shadow-md text-olive-900 dark:text-olive-100 text-xs leading-relaxed border border-sand-gold/10";
+                bubble.innerHTML = parseMarkdownToHTML(text);
+            }
+            chatLog.appendChild(bubble);
+            chatLog.scrollTo({ top: chatLog.scrollHeight, behavior: 'smooth' });
+        }
+
+        async function sendChatMessage(presetText = null) {
+            const inputEl = document.getElementById('chatInput');
+            const queryText = (presetText || inputEl.value).trim();
+            
+            if (!queryText) return;
+            if (!presetText) inputEl.value = '';
+
+            appendChatMessage('user', queryText);
+            const typing = document.getElementById('aiChatTyping');
+            typing.classList.remove('hidden');
+
+            const systemPrompt = `You are Vaidya, an expert Ayurvedic practitioner with decades of experience in spiritual and bodily holistic healing.
+You communicate using a highly respectful, soothing English register, starting key advice with 'Namaste' where appropriate, showing extreme empathy.
+Provide deep, structured, yet concise guidance based on physical habits, herbal science, and routine planning.
+Integrate the user's active session details to personalize your suggestions:
+- Current Dominant Dosha: ${activeDosha}
+- Metabolic Toxin Level (Ama): ${currentAma}%
+- Completed Sattva Routine Score: ${currentSattva}%
+Do not mention any AI, technology, or computer frameworks. Always reply in clean English. Refuse to replace professional medical treatment for severe acute conditions. Softly suggest booking an individual consultation towards the end.`;
+
+            try {
+                const reply = await callGemini(systemPrompt, queryText);
+                typing.classList.add('hidden');
+                appendChatMessage('ai', reply);
+            } catch (error) {
+                console.error(error);
+                typing.classList.add('hidden');
+                appendChatMessage('ai', "Namaste. The celestial channels of communication face a transient silence. Please restate your query, dear traveler.");
+            }
+        }
+
+        function sendQuickPrompt(text) {
+            sendChatMessage(text);
+        }
+
+        function handleChatKeyDown(event) {
+            if (event.key === 'Enter') sendChatMessage();
+        }
+
+        function sendBookingWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById('bName').value.trim();
+            const phone = document.getElementById('bPhone').value.trim();
+            const email = document.getElementById('bEmail').value.trim();
+            const comment = document.getElementById('bComment').value.trim();
+
+            if (!name || !phone || !email) {
+                showToast("Attention", "Please complete all mandatory fields.", "warning");
+                return;
+            }
+
+            const myWhatsAppNumber = "380987636693"; // Your actual WhatsApp phone number
+            const textMsg = `Namaste! I would like to book an Ayurvedic Consultation.%0A%0A` +
+                            `• *Name:* ${encodeURIComponent(name)}%0A` +
+                            `• *Phone:* ${encodeURIComponent(phone)}%0A` +
+                            `• *Email:* ${encodeURIComponent(email)}%0A` +
+                            `• *Active Dosha:* ${encodeURIComponent(activeDosha)}%0A` +
+                            `• *Sattva Index:* ${currentSattva}%%0A` +
+                            `• *Ama Level:* ${currentAma}%%0A` +
+                            `• *Focus Area:* ${encodeURIComponent(comment || "None provided")}`;
+
+            const waLink = `https://wa.me/${myWhatsAppNumber}?text=${textMsg}`;
+            showToast("Success!", "Redirecting you to WhatsApp to complete your booking...", "success");
+            
+            setTimeout(() => {
+                window.open(waLink, '_blank');
+            }, 1200);
+        }
+
+        // Toast controller
+        function showToast(title, msg, type = 'info') {
+            const toast = document.getElementById('toast');
+            const tIcon = document.getElementById('toastIcon');
+            const tTitle = document.getElementById('toastTitle');
+            const tMsg = document.getElementById('toastMessage');
+
+            tTitle.innerText = title;
+            tMsg.innerText = msg;
+
+            if (type === 'success') {
+                tIcon.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500"></i>`;
+                toast.className = "fixed bottom-6 right-6 z-50 max-w-sm w-full bg-sand-100 dark:bg-olive-900 border-l-4 border-emerald-500 p-4 rounded-2xl shadow-2xl flex items-start gap-3 transition-all transform translate-y-0 opacity-100 duration-300";
+            } else if (type === 'warning') {
+                tIcon.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-amber-500"></i>`;
+                toast.className = "fixed bottom-6 right-6 z-50 max-w-sm w-full bg-sand-100 dark:bg-olive-900 border-l-4 border-amber-500 p-4 rounded-2xl shadow-2xl flex items-start gap-3 transition-all transform translate-y-0 opacity-100 duration-300";
+            } else {
+                tIcon.innerHTML = `<i class="fa-solid fa-circle-info text-sand-gold"></i>`;
+                toast.className = "fixed bottom-6 right-6 z-50 max-w-sm w-full bg-sand-100 dark:bg-olive-900 border-l-4 border-sand-gold p-4 rounded-2xl shadow-2xl flex items-start gap-3 transition-all transform translate-y-0 opacity-100 duration-300";
+            }
+
+            toast.classList.remove('hidden');
+
+            setTimeout(() => {
+                toast.className = "fixed bottom-6 right-6 z-50 max-w-sm w-full bg-sand-100 dark:bg-olive-900 border border-sand-gold/20 p-4 rounded-2xl shadow-2xl flex items-start gap-3 transition-all transform translate-y-2 opacity-0 duration-300";
+                setTimeout(() => toast.classList.add('hidden'), 300);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
