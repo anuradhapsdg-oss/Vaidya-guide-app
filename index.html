@@ -1764,44 +1764,21 @@
         }
 
         async function callGemini(systemPrompt, userQuery) {
-            const apiKey = ""; // Will be injected automatically at runtime
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-            
-            const payload = {
-                contents: [{ parts: [{ text: userQuery }] }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                }
-            };
-
-            let delay = 1000;
-            for (let attempt = 0; attempt < 4; attempt++) {
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    
-                    if (response.status === 429 && attempt < 3) {
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                        delay *= 2;
-                        continue;
-                    }
-                    if (!response.ok) {
-                        throw new Error(`HTTP Error: ${response.status}`);
-                    }
-                    
-                    const result = await response.json();
-                    const outputText = result.candidates?.[0]?.content?.parts?.[0]?.text;
-                    if (outputText) return outputText;
-                    throw new Error("No output text received.");
-                } catch (error) {
-                    if (attempt === 3) throw error;
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                    delay *= 2;
-                }
-            }
+    const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            messages: [{ role: 'user', content: userQuery }],
+            system: systemPrompt
+        })
+    });
+    if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status}`);
+    }
+    const result = await response.json();
+    const outputText = result?.content?.[0]?.text;
+    if (outputText) return outputText;
+    throw new Error("No output text received.");
         }
 
         function parseMarkdownToHTML(text) {
